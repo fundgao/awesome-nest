@@ -11,9 +11,9 @@ export class Role extends BaseEntity {
   @Column()
   role_name: string;
 
-  // 父级ID
+  // 角色ID
   @Column()
-  parent_id: number;
+  role_id: string;
 
   // 角色描述
   @Column()
