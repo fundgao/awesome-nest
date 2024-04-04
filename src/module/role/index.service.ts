@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Role } from './index.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { whereEqual, whereLike } from '@/utils/sql';
 
 @Injectable()
 export default class TheService {
@@ -27,7 +28,23 @@ export default class TheService {
     return this.entity.save(newItem);
   }
 
-  getHello(): string {
-    return 'Hello World!';
+  async page({ params, option }: any) {
+    const query = await this.entity.createQueryBuilder().select(
+      `
+      role_id,
+      role_name,
+      description,
+      `,
+    ).where(`
+      ${whereEqual('role_id', option.role_id)}
+      ${whereLike('role_name', option.role_name)}
+      1 = 1
+    `);
+    const total = await query.getCount();
+    const records = await query
+      .limit(params.pageSize)
+      .offset(params.offset)
+      .getRawMany();
+    return { records, total };
   }
 }

@@ -8,7 +8,7 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import { Reflector } from '@nestjs/core';
 import { PUBLIC_KEY, LOGIC_STATUS, JWT_CONSTANYS } from '@/constants/common';
-import ErrorException from '@/utils/exception/Error';
+import ErrorException from '@/utils/ErrorException';
 
 @Injectable()
 export default class AuthInterceptor implements NestInterceptor {
