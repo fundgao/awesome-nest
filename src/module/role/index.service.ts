@@ -47,4 +47,27 @@ export default class TheService {
       .getRawMany();
     return { records, total };
   }
+
+  async delete({ role_id }: any){
+    const item = await this.findOne({ role_id });
+    if (!!item) {
+      return this.entity.delete({ role_id });
+    }
+    return '数据不存在，删除失败！';
+  }
+
+  async findAll(option: any) {
+    const query = await this.entity.createQueryBuilder().select(
+      `
+      role_id,
+      role_name,
+      description,
+      `,
+    ).where(`
+      ${whereEqual('role_id', option.role_id)}
+      ${whereLike('role_name', option.role_name)}
+      1 = 1
+    `);
+    return await query.getRawMany();
+  }
 }
