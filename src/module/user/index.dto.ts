@@ -17,7 +17,7 @@ export class UserDto {
     required: false,
     description: '',
   })
-  user_name: string;
+  username: string;
 
   @ApiProperty({
     required: false,

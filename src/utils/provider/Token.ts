@@ -69,7 +69,7 @@ export default class AuthInterceptor implements NestInterceptor {
   }
 }
 
-export const TokenProviders = {
+export const TokenProvider = {
   provide: APP_INTERCEPTOR,
   useClass: AuthInterceptor,
 };

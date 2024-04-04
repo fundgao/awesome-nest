@@ -10,7 +10,7 @@ export class User extends BaseEntity {
   user_id: string;
 
   @Column()
-  user_name: string;
+  username: string;
 
   @Column({
     default: '',

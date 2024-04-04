@@ -1,11 +1,14 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import TypeOrmModule from './TypeOrmModule';
+import User from '@/module/user/index.module';
+import Role from '@/module/role/index.module';
+import { TokenProvider } from '@/utils/provider/Token';
+import { ResponseProVider } from '@/utils/provider/Response';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [Role, User, TypeOrmModule],
+  controllers: [],
+  providers: [ResponseProVider, TokenProvider],
 })
 export class AppModule {}
 

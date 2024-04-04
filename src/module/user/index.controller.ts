@@ -12,6 +12,7 @@ import ValidatorPipe from '@/utils/ValidatorPipe';
 import { UserDto } from './index.dto';
 import { getPageParams } from '@/config/BaseEntity';
 import { v4 as uuidv4 } from 'uuid';
+import { Public } from '@/utils/decorator/auth';
 
 @ApiTags('用户管理')
 @Controller('')
@@ -40,28 +41,28 @@ export default class TheController {
   @ApiTags('分页')
   @Get('user/all')
   async all(@Query(new ValidatorPipe()) dto: UserDto) {
-    const { user_id, user_name } = dto;
+    const { user_id, username } = dto;
     return this.service.findAll({
       user_id,
-      user_name,
+      username,
     });
   }
 
   @ApiTags('新增用户')
   @Post('user/create')
   async create(@Query(new ValidatorPipe()) dto: UserDto) {
-    const { user_name, description } = dto;
-    if (!user_name) {
+    const { username, description } = dto;
+    if (!username) {
       throw new BadRequestException('用户名不能为空！');
     }
     try {
-      const item = await this.service.findOne({ user_name });
+      const item = await this.service.findOne({ username });
       if (!!item) {
         throw new BadRequestException('该用户已存在！');
       } else {
         this.service.create({
           user_id: uuidv4(),
-          user_name,
+          username,
           description,
         });
       }
@@ -85,6 +86,22 @@ export default class TheController {
   @ApiTags('删除用户')
   @Delete('user/delete')
   async delete(@Query(new ValidatorPipe()) dto: UserDto) {
+    try {
+      const { user_id } = dto;
+      this.service.delete({ user_id });
+    } catch (error) {
+      console.error(error);
+    }
+    return '删除用户成功！';
+  }
+
+  /**
+   * 登出前端清除 Token 即可
+   */
+  @ApiTags('登录')
+  @Post('login')
+  @Public()
+  async login(@Query(new ValidatorPipe()) dto: UserDto) {
     try {
       const { user_id } = dto;
       this.service.delete({ user_id });
