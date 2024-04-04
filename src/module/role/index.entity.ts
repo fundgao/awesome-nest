@@ -16,6 +16,8 @@ export class Role extends BaseEntity {
   role_id: string;
 
   // 角色描述
-  @Column()
+  @Column({
+    default: '',
+  })
   description: string;
 }

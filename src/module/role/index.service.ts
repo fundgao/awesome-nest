@@ -48,7 +48,7 @@ export default class TheService {
     return { records, total };
   }
 
-  async delete({ role_id }: any){
+  async delete({ role_id }: any) {
     const item = await this.findOne({ role_id });
     if (!!item) {
       return this.entity.delete({ role_id });
