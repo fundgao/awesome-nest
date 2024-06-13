@@ -17,6 +17,9 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## 国际化
+- [Nest 实现国际化](https://juejin.cn/post/7379496229725257767)
+
 ## Test
 
 ```bash
