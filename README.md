@@ -4,6 +4,8 @@
 $ npm install
 ```
 
+Nestjs + TypeScript + MySQL 
+
 ## Running the app
 
 ```bash
