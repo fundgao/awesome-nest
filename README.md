@@ -22,6 +22,7 @@ $ npm run start:prod
 ## 教程文章
 - [Nest 实现国际化](https://juejin.cn/post/7379496229725257767)
 - [Nest 教程集合](https://juejin.cn/collection/7253382801860853819)
+- [Nest：常用 15 个装饰器知多少？](https://juejin.cn/post/7340554546253611023)
 - AIGC
 
 ## Test
