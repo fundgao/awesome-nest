@@ -25,6 +25,9 @@ $ npm run start:prod
 - [Nest：常用 15 个装饰器知多少？](https://juejin.cn/post/7340554546253611023)
 - AIGC
 
+## DEMO
+- [Carole-admin后台管理框架](https://github.com/Carole007/carole-admin)
+
 ## Test
 
 ```bash
