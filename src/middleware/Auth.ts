@@ -22,6 +22,7 @@ export default class AuthInterceptor implements NestInterceptor {
     return type === 'Bearer' ? token : undefined;
   }
 
+  
   async intercept(
     context: ExecutionContext,
     next: CallHandler<any>,
