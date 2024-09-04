@@ -1,3 +1,10 @@
+# 简介
+* Nestjs
+* TypeScript
+* MySQL
+* JWT登录鉴权
+* typeorm自动建表
+
 ## Installation
 
 ```bash
