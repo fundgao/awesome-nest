@@ -54,7 +54,7 @@ async function bootstrap() {
     cors: true,
     logger: ['error', 'warn'],
   });
-  app.use(compression);
-  await app.listen(3000);
+  app.use(compression());
+  await app.listen(3000); // http://localhost:3000/x-kol/all
 }
 bootstrap();

@@ -41,9 +41,10 @@ export default class TheController {
   @ApiTags('分页')
   @Get('user/all')
   async all(@Query(new ValidatorPipe()) dto: UserDto) {
-    const { user_id, username } = dto;
+    const { user_id, role_id, username } = dto;
     return this.service.findAll({
       user_id,
+      role_id,
       username,
     });
   }

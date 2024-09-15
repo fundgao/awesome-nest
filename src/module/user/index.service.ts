@@ -44,6 +44,7 @@ export default class TheService {
     }
   }
 
+  // 注意 最后的,号
   async page({ params, option }: any) {
     const query = await this.entity.createQueryBuilder().select(
       `
@@ -54,7 +55,7 @@ export default class TheService {
       phone_number,
       email,
       avatar,
-      description,
+      description
       `,
     ).where(`
       ${whereEqual('user_id', option.user_id)}
@@ -78,6 +79,7 @@ export default class TheService {
     return '数据不存在，删除失败！';
   }
 
+  // 注意 最后的,号
   async findAll(option: any) {
     const query = await this.entity.createQueryBuilder().select(
       `
@@ -88,7 +90,7 @@ export default class TheService {
       phone_number,
       email,
       avatar,
-      description,
+      description
       `,
     ).where(`
       ${whereEqual('user_id', option.user_id)}
