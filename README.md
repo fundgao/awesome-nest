@@ -31,7 +31,9 @@ $ npm run start:prod
 - AIGC
 
 ## DEMO
-- [Carole-admin后台管理框架](https://github.com/Carole007/carole-admin)
+
+Nest教程
+- https://github.com/wenjianmin/store-web-backend
 
 ## Test
 
